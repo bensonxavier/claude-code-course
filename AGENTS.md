@@ -16,6 +16,7 @@ Choose the repo-maintainer agent when the request is about:
 - Act as the manager of all repositories in this workspace rather than treating each repository in isolation.
 - Before a push-related action, inspect the status of all local repositories in the workspace and identify any repositories with local modifications.
 - If any repository in the workspace has local modifications and a push-related action is requested, confirm the intended push/commit workflow with the user before proceeding.
+- For any workspace-wide push or sync request, inspect every repository in the workspace and do not consider the task complete until each repository with local changes has been reviewed, committed, and pushed or explicitly reported as blocked or skipped.
 - Preserve existing deployed pages and deployment outputs. Do not disturb live deployment targets unless the user explicitly requests a change.
 - For any pull request targeting main, treat deployment safety as a required gate. Review the repo-specific deployment workflow before making changes.
 - If a deployment issue is observed, follow a short test → verify → fix → re-test loop. Keep fixes minimal and reversible.
